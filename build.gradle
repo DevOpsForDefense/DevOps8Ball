@@ -15,10 +15,20 @@ plugins {
     
     // Apply the jacoco plugin for code coverage analysis
     id 'jacoco'
+    
+    // Apply the jdepend plugin for code dependency analysis
+    id 'jdepend'
+    
+    // Apply the checkstyle plugin for code style static analysis
+    id 'checkstyle'
+    
 }
 
+compileJava.options.fork = true
+compileJava.options.forkOptions.executable = '/opt/java/jdk-10.0.1/bin/javac'
+
 // Define the main class for the application
-mainClassName = 'HelloWorld'
+mainClassName = 'Driver'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
@@ -53,3 +63,13 @@ javadoc {
     options.addBooleanOption('html5', true)
 }
 
+checkstyle {
+    toolVersion '8.12'
+    configFile file("config/checkstyle/checkstyle.xml")
+}
+checkstyleMain {
+    source ='src/main/java'
+}
+checkstyleTest {
+    source ='src/test/java'
+}

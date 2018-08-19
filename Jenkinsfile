@@ -7,6 +7,12 @@ pipeline {
                 sh './gradlew build'
             }
         }
+        stage('Static Analysis') {
+            steps {
+                sh './gradlew check'
+            }
+
+        }
         stage('Docs') {
             steps {
                 sh './gradlew javadoc'
