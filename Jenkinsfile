@@ -1,11 +1,18 @@
 pipeline {
     agent  any 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'chmod +x ./gradlew'
                 sh './gradlew build'
             }
         }
+        stage('Docs') {
+            steps {
+                sh './gradlew javadoc'
+            }
+
+        }
+
     }
 }

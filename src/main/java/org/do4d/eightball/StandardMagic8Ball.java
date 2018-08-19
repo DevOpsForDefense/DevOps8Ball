@@ -2,6 +2,12 @@ package org.do4d.eightball;
 
 import java.util.Random;
 
+/**
+ * This is a standard Magic 8 Ball using the 20 standard responses.
+ * 
+ * @author jd
+ *
+ */
 public class StandardMagic8Ball implements Magic8Ball {
 
 	private final Random rand = new Random();
