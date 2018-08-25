@@ -26,7 +26,6 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/test-results/**/*.xml'
-            javadoc 'build/docs/javadoc/**'
         }
     }
 }
