@@ -22,13 +22,6 @@ pipeline {
 
     }
     
-    jacocoTestReport {
-	    reports {
-	        xml.enabled false
-	        html.enabled true
-	    }
-	}
-    
     post {
         always {
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
