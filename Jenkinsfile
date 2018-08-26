@@ -33,7 +33,7 @@ pipeline {
 		        alwaysLinkToLastBuild: false,
 		        keepAll: true,
 		        reportDir: 'build/docs/javadoc/',
-		        reportFiles: 'index.html',
+		        reportFiles: 'overview-summary.html',
 		        reportName: "JavaDocs"
 		    ])
         }
