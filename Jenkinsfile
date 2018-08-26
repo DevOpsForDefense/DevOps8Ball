@@ -26,6 +26,16 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/test-results/**/*.xml'
+            
+            // publish html
+		    publishHTML (target: [
+		        allowMissing: false,
+		        alwaysLinkToLastBuild: false,
+		        keepAll: true,
+		        reportDir: 'build/docs/javadoc',
+		        reportFiles: 'index.html',
+		        reportName: "JavaDocs"
+		    ])
         }
     }
 }
