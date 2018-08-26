@@ -22,12 +22,19 @@ pipeline {
 
     }
     
+    jacocoTestReport {
+	    reports {
+	        xml.enabled false
+	        html.enabled true
+	    }
+	}
+    
     post {
         always {
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/test-results/**/*.xml'
             
-            // publish html
+            // publish JavaDocs
 		    publishHTML (target: [
 		        allowMissing: false,
 		        alwaysLinkToLastBuild: false,
@@ -35,6 +42,16 @@ pipeline {
 		        reportDir: 'build/docs/javadoc/',
 		        reportFiles: 'overview-summary.html',
 		        reportName: "JavaDocs"
+		    ])
+		    
+		    // publish Test Coverage
+		    publishHTML (target: [
+		        allowMissing: false,
+		        alwaysLinkToLastBuild: false,
+		        keepAll: true,
+		        reportDir: 'build/reports/jacoco/test/html/',
+		        reportFiles: 'index.html',
+		        reportName: "Coverage Reports"
 		    ])
         }
     }

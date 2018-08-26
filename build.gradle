@@ -63,6 +63,13 @@ javadoc {
     options.addBooleanOption('html5', true)
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
 checkstyle {
     toolVersion '8.12'
     configFile file("config/checkstyle/checkstyle.xml")
@@ -73,3 +80,5 @@ checkstyleMain {
 checkstyleTest {
     source ='src/test/java'
 }
+
+check.dependsOn jacocoTestReport
