@@ -12,9 +12,9 @@ pipeline {
             steps {
                 sh './gradlew check'
                 step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', 
-                     pattern: '/reports/checkstyle/main.xml', 
+                     pattern: '/build/reports/checkstyle/main.xml', 
                      unstableTotalAll:'0',unhealthy:'100', healthy:'100'])
-                step([$class: 'FindBugsPublisher', pattern: '/reports/spotbugs/main.xml', unstableTotalAll:'0'])
+                step([$class: 'FindBugsPublisher', pattern: '/build/reports/spotbugs/main.xml', unstableTotalAll:'0'])
             }
 
         }
@@ -38,7 +38,7 @@ pipeline {
 		        alwaysLinkToLastBuild: false,
 		        keepAll: true,
 		        reportDir: 'build/docs/javadoc/',
-		        reportFiles: 'overview-summary.html',
+		        reportFiles: 'index.html',
 		        reportName: "JavaDocs"
 		    ])
 		    
