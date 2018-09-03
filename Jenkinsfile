@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'chmod +x ./gradlew'
                 sh './gradlew build -x checkstyleMain -x checkstyleTest -x spotbugsMain -x spotbugsTest'
+                step( [ $class: 'JacocoPublisher' ] )
             }
         }
         stage('Static Analysis') {
