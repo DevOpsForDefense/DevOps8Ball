@@ -69,7 +69,7 @@ test {
 javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.compile
-    options.addBooleanOption('html5', true)
+    //options.addBooleanOption('html5', true)
 }
 
 spotbugs {
