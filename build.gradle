@@ -22,6 +22,9 @@ plugins {
     // Apply the checkstyle plugin for code style static analysis
     id 'checkstyle'
     
+    // Apply the findbugs plugin for code quality static analysis
+    id "com.github.spotbugs" version "1.6.2"
+    
 }
 
 compileJava.options.fork = true
@@ -29,6 +32,12 @@ compileJava.options.forkOptions.executable = '/opt/java/jdk-10.0.1/bin/javac'
 
 // Define the main class for the application
 mainClassName = 'Driver'
+
+if(JavaVersion.current() != JavaVersion.VERSION_1_8){
+    throw new GradleException("This build must be run with java 8")
+} else {
+	println "Running Java 8"
+}
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
@@ -61,6 +70,18 @@ javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.compile
     options.addBooleanOption('html5', true)
+}
+
+spotbugs {
+  effort = "max"
+  reportLevel = "low"
+  includeFilter = file("config/findbugs/ExcludeFilter.xml")
+}
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+  reports {
+    xml.enabled = true
+    html.enabled = false
+  }
 }
 
 jacocoTestReport {

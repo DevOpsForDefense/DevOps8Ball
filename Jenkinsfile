@@ -4,12 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'chmod +x ./gradlew'
-                sh './gradlew build'
+                sh './gradlew build -x checkstyleMain -x checkstyleTest -x spotbugsMain -x spotbugsTest'
             }
         }
         stage('Static Analysis') {
             steps {
                 sh './gradlew check'
+                step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', 
+                     pattern: '/reports/checkstyle/main.xml', 
+                     unstableTotalAll:'0',unhealthy:'100', healthy:'100'])
+                step([$class: 'FindBugsPublisher', pattern: '/reports/spotbugs/main.xml', unstableTotalAll:'0'])
             }
 
         }

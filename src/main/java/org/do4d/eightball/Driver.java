@@ -28,7 +28,12 @@ public class Driver {
 		
 		while (true) {
 			System.out.println("What is your question?  [enter q to quit]");
-			question = in.readLine().trim();
+			question = in.readLine();
+			if (question != null) {
+				question = question.trim();
+			} else {
+				question = "q";
+			}
 			if (question.toLowerCase().equals("q")) {
 				break;
 			}
