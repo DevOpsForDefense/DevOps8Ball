@@ -12,9 +12,9 @@ pipeline {
             steps {
                 sh './gradlew check'
                 step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', 
-                     pattern: '/build/reports/checkstyle/main.xml', 
+                     pattern: 'build/reports/checkstyle/main.xml', 
                      unstableTotalAll:'0',unhealthy:'100', healthy:'100'])
-                step([$class: 'FindBugsPublisher', pattern: '/build/reports/spotbugs/main.xml', unstableTotalAll:'0'])
+                step([$class: 'FindBugsPublisher', pattern: 'build/reports/spotbugs/main.xml', unstableTotalAll:'0'])
             }
 
         }
