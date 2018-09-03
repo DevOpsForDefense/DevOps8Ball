@@ -38,7 +38,7 @@ pipeline {
 		        alwaysLinkToLastBuild: false,
 		        keepAll: true,
 		        reportDir: 'build/docs/javadoc/',
-		        reportFiles: 'index.html',
+		        reportFiles: 'allclasses-noframe.html',
 		        reportName: "JavaDocs"
 		    ])
 		    
