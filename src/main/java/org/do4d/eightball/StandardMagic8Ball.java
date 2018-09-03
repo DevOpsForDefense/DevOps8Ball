@@ -32,6 +32,7 @@ public class StandardMagic8Ball implements Magic8Ball {
 			"My reply is no.",
 			"My sources say no.",
 			"Outlook not so good.",
+			"I have no idea.",
 			"Very doubtful." };
 	
 	private String response = possibleAnswers[0];
