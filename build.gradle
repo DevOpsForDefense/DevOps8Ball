@@ -91,6 +91,13 @@ jacocoTestReport {
     }
 }
 
+tasks.withType(JDepend) {
+    reports {
+        text.enabled = true
+        xml.enabled = false
+    }
+}
+
 checkstyle {
     toolVersion '8.12'
     configFile file("config/checkstyle/checkstyle.xml")
