@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 
@@ -75,7 +74,6 @@ class Magic8BallTest {
 	}
 	
 	@Test
-	@Ignore
 	void testThatAllStandardAnswersArePresent() {
 		Magic8Ball b = new StandardMagic8Ball();
 		
