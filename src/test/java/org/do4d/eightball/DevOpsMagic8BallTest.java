@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class DevOpsMagic8BallTest {
 
-	//@Test
+	@Test
 	void testStandardUsage() {
 		Magic8Ball b = new DevOpsMagic8Ball();
 		
