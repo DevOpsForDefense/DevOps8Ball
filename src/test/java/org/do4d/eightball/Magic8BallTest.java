@@ -61,7 +61,7 @@ class Magic8BallTest {
 		int numSame = 0;
 		
 		String last = b.look();
-		for(int i=0; i<100; i++) {
+		for (int i = 0; i < 100; i++) {
 			b.shake();
 			String answer = b.look();
 			if (last.equals(answer)) {
@@ -78,11 +78,11 @@ class Magic8BallTest {
 		Magic8Ball b = new StandardMagic8Ball();
 		
 		Map<String, Integer> answers = new HashMap<>();
-		for (int i=0; i<allowedAnswers.length; i++) {
+		for (int i = 0; i < allowedAnswers.length; i++) {
 			answers.put(allowedAnswers[i], 0);
 		}
 
-		for(int i=0; i<1000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			b.shake();
 			String answer = b.look();
 			if (!answers.containsKey(answer)) {
@@ -96,7 +96,7 @@ class Magic8BallTest {
 		}
 		
 		for (String key : answers.keySet()) {
-			assertTrue(answers.get(key) > 0, "Standard answer \"" + key +"\" not observed.");
+			assertTrue(answers.get(key) > 0, "Standard answer \"" + key + "\" not observed.");
 		}
 	}
 

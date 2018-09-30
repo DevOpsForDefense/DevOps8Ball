@@ -69,9 +69,10 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     )
     
-    testCompile 'io.cucumber:cucumber-java:4.0.0'
-    testCompile 'io.cucumber:cucumber-junit:4.0.0'
-    testCompile 'junit:junit:4.12'
+    cucumberCompile 'info.cukes:cucumber-java:1.2.2'
+    
+    // To use JUnit assertions in the step definitions:
+    cucumberCompile 'junit:junit:4.12'
     
 }
 
@@ -87,21 +88,13 @@ test {
     useJUnitPlatform()
 }
 
-configurations {
-    cucumberRuntime {
-        extendsFrom testRuntime
-    }
-}
-
-task cucumber() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        javaexec {
-            main = "cucumber.api.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'junit:build/reports/cucumber/cucumber-junit-report.xml', '--plugin', 'pretty:build/reports/cucumber/cucumber-pretty.txt', '--glue', 'org.do4d.eightball', 'src/test/resources']
-        }
-    }
+addCucumberSuite 'cucumber'
+  
+cucumberTest {
+    stepDefinitionRoots = ['cucumber']
+    systemProperties = [
+        'myVar': 'myValue'
+    ]
 }
 
 javadoc {

@@ -24,6 +24,12 @@ pipeline {
             }
 
         }
+        stage('Acceptance Test') {
+            steps {
+                sh './gradlew cucumber'
+            }
+
+        }
 
     }
     

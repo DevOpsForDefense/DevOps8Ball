@@ -2,7 +2,17 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/cucumber-reporting-3.20.0.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/cobertura-2.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/cucumber-core-1.2.5.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/cucumber-java-1.2.5.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/cucumber-junit-1.2.5.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/cucumber-jvm-deps-1.0.5.jar"/>
+	<classpathentry kind="lib" path="/home/jd/Dev/libs/cucumber/gherkin-2.12.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
