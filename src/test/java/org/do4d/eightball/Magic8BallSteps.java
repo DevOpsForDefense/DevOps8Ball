@@ -29,6 +29,12 @@ public class Magic8BallSteps {
 		
 	}
 	
+	@When ("^I ask will Mississippi State ever be the national champion$")
+	public void askWillMississippiStateEverBeTheNationalChampion() throws Throwable {
+		toy.ask("Will Mississippi State ever be the nation champions?");
+		
+	}
+	
 	@And ("^I shake the magic eight ball$")
 	public void shakeTheMagicEightBall() throws Throwable {
 		toy.shake();
