@@ -37,6 +37,7 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/test-results/**/*.xml'
+            cucumber 'build/reports/cucumber/*.json'
             
             // publish JavaDocs
 		    publishHTML (target: [
