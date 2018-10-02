@@ -1,16 +1,17 @@
 package org.do4d.eightball;
 
-
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
-import java.util.Arrays;
-import java.util.List;
+import static org.junit.Assert.assertTrue;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Magic8BallSteps {
 	
@@ -26,12 +27,6 @@ public class Magic8BallSteps {
 	@When ("^I ask will Mississippi State be the national champion$")
 	public void askWillMississippiStateBeTheNationalChampion() throws Throwable {
 		toy.ask("Will Mississippi State be the nation champions?");
-		
-	}
-	
-	@When ("^I ask will Mississippi State ever be the national champion$")
-	public void askWillMississippiStateEverBeTheNationalChampion() throws Throwable {
-		toy.ask("Will Mississippi State ever be the nation champions?");
 		
 	}
 	
@@ -71,6 +66,12 @@ public class Magic8BallSteps {
 				"Outlook not so good.",
 				"Very doubtful." });
 		assertTrue(allowedAnswers.contains(lastResponse));
+	}
+	
+	@When ("^I ask will Mississippi State ever be the national champion$")
+	public void askWillMississippiStateEverBeTheNationalChampion() throws Throwable {
+		toy.ask("Will Mississippi State ever be the nation champions?");
+		
 	}
 
 }

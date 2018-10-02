@@ -1,6 +1,11 @@
-Feature: Predict the future
-  I want to use the magic 8 ball to answer a question 
-  about the future
+Feature: Predict the future with a Magic 8 Ball
+
+  Req-001 = Magic 8 ball shall allow the user to ask a question.
+  Req-002 = Magic 8 ball shall provide the user a response.
+  Req-003 = Magic 8 ball response shall conform to the standrd
+            as defined on wikipedia 
+            (https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers)
+
 
   Scenario: Predict the college football national champion
     Given I have a magic eight ball
